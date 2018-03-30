@@ -21,10 +21,12 @@ const controls = [
   { label: 'Meat', type: 'meat' }
 ]
 
-const BuildControls = () => {
+const BuildControls = ({ onAdd = f => f }) => {
   return (
     <BuildControlsDiv>
-      {controls.map(ctrl => <BuildControl {...ctrl} key={ctrl.label} />)}
+      {controls.map(ctrl => (
+        <BuildControl onAdd={onAdd} {...ctrl} key={ctrl.label} />
+      ))}
     </BuildControlsDiv>
   )
 }

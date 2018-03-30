@@ -42,12 +42,14 @@ const Button = styled.button`
   }
 `
 
-const BuildControl = ({ label, type }) => {
+const BuildControl = ({ label, type, onAdd = f => f }) => {
   return (
     <BuildControlDiv>
       <Label> {label} </Label>
-      <Button more> More </Button>
-      <Button less> Less </Button>
+      <Button onClick={() => onAdd(type)} more>
+        More
+      </Button>
+      <Button less>Less</Button>
     </BuildControlDiv>
   )
 }

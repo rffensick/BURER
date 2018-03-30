@@ -38,7 +38,7 @@ export default class BurgerBuilder extends Component {
     return (
       <Aux>
         <Burger ingredients={this.state.ingredients} />
-        <BuildControls />
+        <BuildControls onAdd={this.addIngredients} />
       </Aux>
     )
   }
