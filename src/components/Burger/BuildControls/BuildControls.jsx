@@ -3,23 +3,29 @@ import styled from 'styled-components'
 import BuildControl from './BuildControl/BuildControl'
 
 const BuildControlsDiv = styled.div`
-  width: 100%;
   background-color: #cf8f2e;
   display: flex;
-  flex-flow: column;
+  justify-content: center;
+  flex-flow: row;
+  flex-wrap: wrap;
   align-items: center;
   box-shadow: 0 2px 1px #ccc;
   margin: auto;
   padding: 10px 0;
 `
 
+const controls = [
+  { label: 'Salad', type: 'salad' },
+  { label: 'Cheese', type: 'cheese' },
+  { label: 'Bacon', type: 'bacon' },
+  { label: 'Meat', type: 'meat' }
+]
+
 const BuildControls = () => {
   return (
-    <div>
-      <BuildControlsDiv>
-        <BuildControl />
-      </BuildControlsDiv>
-    </div>
+    <BuildControlsDiv>
+      {controls.map(ctrl => <BuildControl {...ctrl} key={ctrl.label} />)}
+    </BuildControlsDiv>
   )
 }
 

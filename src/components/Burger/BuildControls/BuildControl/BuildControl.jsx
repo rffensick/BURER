@@ -3,39 +3,51 @@ import styled from 'styled-components'
 
 const BuildControlDiv = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  flex-basis: 50%;
+  align-items: baseline;
   margin: 5px 0;
+`
 
-  button {
-    display: block;
-    font-family: inherit;
-    padding: 5px;
-    margin: 0 5px;
-    width: 80px;
-    border: 1px solid #aa6817;
-    outline: none;
-    cursor: pointer;
+const Label = styled.label`
+  font-weight: bold;
+  width: 80px;
+`
 
-    &:disabled {
-      background-color: #ac9980;
-      border: 1px solid #7e7365;
-      color: #ccc;
-      cursor: default;
+const Button = styled.button`
+  font-family: inherit;
+  padding: 5px;
+  margin: 0 5px;
+  background-color: ${props => (props.more ? '#8f5e1e' : '#d39952')};
+  width: 80px;
+  border: 1px solid #aa6817;
+  outline: none;
+  color: white;
+  cursor: pointer;
 
-      &:hover {
-        cursor: not-allowed;
-      }
+  &:disabled {
+    background-color: #ac9980;
+    border: 1px solid #7e7365;
+    color: #ccc;
+    cursor: default;
+
+    &:hover {
+      cursor: not-allowed;
     }
+  }
+
+  &:hover {
+    background-color: #daa972;
+    color: #fff;
   }
 `
 
-const BuildControl = props => {
+const BuildControl = ({ label, type }) => {
   return (
     <BuildControlDiv>
-      <div> {props.label} </div>
-      <button> Less </button>
-      <button> More </button>
+      <Label> {label} </Label>
+      <Button more> More </Button>
+      <Button less> Less </Button>
     </BuildControlDiv>
   )
 }
