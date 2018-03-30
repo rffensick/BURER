@@ -25,7 +25,11 @@ const BuildControls = ({ onAdd = f => f }) => {
   return (
     <BuildControlsDiv>
       {controls.map(ctrl => (
-        <BuildControl onAdd={onAdd} {...ctrl} key={ctrl.label} />
+        <BuildControl
+          onAdd={() => onAdd(ctrl.type)}
+          {...ctrl}
+          key={ctrl.label}
+        />
       ))}
     </BuildControlsDiv>
   )

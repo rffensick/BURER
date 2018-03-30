@@ -46,7 +46,7 @@ const BuildControl = ({ label, type, onAdd = f => f }) => {
   return (
     <BuildControlDiv>
       <Label> {label} </Label>
-      <Button onClick={() => onAdd(type)} more>
+      <Button onClick={onAdd} more>
         More
       </Button>
       <Button less>Less</Button>
