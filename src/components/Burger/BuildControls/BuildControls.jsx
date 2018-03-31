@@ -34,8 +34,10 @@ const OrderButton = styled.button`
   background-color: #dad735;
   outline: none;
   cursor: pointer;
+  display: inline-block;
   border: 1px solid #966909;
   color: #966909;
+  vertical-align: middle;
   font-family: inherit;
   font-size: 1.2rem;
   padding: 15px 30px;
@@ -72,6 +74,7 @@ const BuildControls = ({
   disabledInfo,
   purchasable,
   ordred,
+  modalClose,
   onAdd = f => f,
   onRemove = f => f
 }) => {
@@ -89,9 +92,11 @@ const BuildControls = ({
           />
         ))}
       </BuildControlsDiv>
-      <OrderButton onClick={ordred} disabled={!purchasable}>
-        Order Now!
-      </OrderButton>
+      <div style={{display: 'flex', justifyContent: 'center', margin: '10px 0'}} >
+        <OrderButton onClick={ordred} disabled={!purchasable}>
+          Order Now!
+        </OrderButton>
+      </div>
     </Fragment>
   )
 }

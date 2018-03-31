@@ -11,8 +11,8 @@ const BackdropDiv = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `
 
-const Backdrop = ({ show }) => {
-  return show && <BackdropDiv />
+const Backdrop = ({ show, clicked }) => {
+  return show && <BackdropDiv onClick={clicked} />
 }
 
 export default Backdrop

@@ -5,7 +5,7 @@ import BurgetIng from './BurgerIng/'
 const Burger = styled.div`
   width: 100%;
   margin: auto;
-  height: 250px;
+  min-height: 450px;
   overflow: hidden;
   text-align: center;
   font-weight: bold;
@@ -13,17 +13,14 @@ const Burger = styled.div`
 
   @media (min-width: 500px) {
     width: 350px;
-    height: 300px;
   }
 
   @media (min-width: 500px) {
     width: 450px;
-    height: 400px;
   }
 
   @media (min-width: 1000px) {
     width: 700px;
-    height: 600px;
   }
 `
 

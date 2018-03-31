@@ -24,9 +24,9 @@ const ModalDiv = styled.div`
   }
 `
 
-const Modal = ({ show, children }) => (
+const Modal = ({ show, children, modalClose }) => (
   <Aux>
-    <Backdrop show={show} />
+    <Backdrop clicked={modalClose} show={show} />
     <ModalDiv show={show}>{children}</ModalDiv>
   </Aux>
 )

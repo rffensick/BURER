@@ -1,5 +1,6 @@
 import React from 'react'
 import Aux from '../../../hoc/Aux1'
+import { ButtonStyle } from '../../UI/Button/Button'
 
 const OrderSummary = props => {
   const ingredientsSummary = Object.keys(props.ingredients).map(ingKey => (
@@ -14,6 +15,8 @@ const OrderSummary = props => {
       <p>A delicious burger with the following ingredients:</p>
       <ul>{ingredientsSummary}</ul>
       <p>Continue to Checkout?</p>
+      <ButtonStyle onClick={props.modalClose} danger>Cancel</ButtonStyle>
+      <ButtonStyle onClick={props.purchaseContinue} success>Continue</ButtonStyle>
     </Aux>
   )
 }
