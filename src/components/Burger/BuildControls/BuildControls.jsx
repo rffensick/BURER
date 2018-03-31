@@ -71,6 +71,7 @@ const BuildControls = ({
   price,
   disabledInfo,
   purchasable,
+  ordred,
   onAdd = f => f,
   onRemove = f => f
 }) => {
@@ -88,7 +89,9 @@ const BuildControls = ({
           />
         ))}
       </BuildControlsDiv>
-      <OrderButton disabled={!purchasable}>Order Now!</OrderButton>
+      <OrderButton onClick={ordred} disabled={!purchasable}>
+        Order Now!
+      </OrderButton>
     </Fragment>
   )
 }
