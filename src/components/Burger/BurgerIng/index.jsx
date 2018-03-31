@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const BreadBottom = styled.div`
-  height: 60px;
+  height: 80px;
   width: 80%;
   background: linear-gradient(#f08e4a, #e27b36);
   border-radius: 0 0 30px 30px;
@@ -12,7 +12,7 @@ const BreadBottom = styled.div`
 `
 
 const BreadTop = styled.div`
-  height: 100px;
+  height: 120px;
   width: 80%;
   background: linear-gradient(#bc581e, #e27b36);
   border-radius: 50% 50% 0 0;
