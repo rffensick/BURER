@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Logo from '../../UI/Logo/Logo'
 import NavigationItems from '../NavigationItems/NavigationItems'
+import ToggleButton from '../../UI/ToggleButton/ToggleButton'
 
 const ToolbarHeader = styled.div`
   height: 56px;
@@ -30,7 +31,7 @@ const ToolbarNav = styled.nav`
 const Toolbar = props => {
   return (
     <ToolbarHeader>
-      <div onClick={props.clicked}>Menu</div>
+      <ToggleButton active={props.active} clicked={props.clicked} />
       <Logo />
       <ToolbarNav>
         <NavigationItems />

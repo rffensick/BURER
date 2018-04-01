@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Aux from '../../hoc/Aux1'
 import Toolbar from '../Navigation/Toobar/Toolbar'
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer'
+import 'hamburgers/dist/hamburgers.css'
 
 export default class Layout extends Component {
   state = {
@@ -17,7 +18,10 @@ export default class Layout extends Component {
     const { children } = this.props
     return (
       <Aux>
-        <Toolbar clicked={this.toggleSideDrawer} />
+        <Toolbar
+          active={this.state.showSideDrawer}
+          clicked={this.toggleSideDrawer}
+        />
         <SideDrawer
           close={this.toggleSideDrawer}
           show={this.state.showSideDrawer}
