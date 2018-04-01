@@ -39,7 +39,7 @@ export default ({ ingredients }) => {
       <BurgetIng type="bread-top" />
       {transformedIngredients}
       {transformedIngredients.length === 0 && (
-        <p>Please select some ingredients</p>
+        <p>Please select some ingredients!</p>
       )}
       <BurgetIng type="bread-bottom" />
     </Burger>

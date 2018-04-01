@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Logo from '../../UI/Logo/Logo'
 import NavigationItems from '../NavigationItems/NavigationItems'
 import styled, { ThemeProvider } from 'styled-components'
+import Backdrop from '../../UI/Backdrop/Backdrop'
 
 const SideDrawerDiv = styled.div`
   position: fixed;
@@ -35,14 +36,17 @@ const theme = {
 
 const SideDrawer = props => {
   return (
-    <SideDrawerDiv>
-      <ThemeProvider theme={theme}>
-        <Logo />
-      </ThemeProvider>
-      <nav>
-        <NavigationItems />
-      </nav>
-    </SideDrawerDiv>
+    <Fragment>
+      <Backdrop show />
+      <SideDrawerDiv>
+        <ThemeProvider theme={theme}>
+          <Logo />
+        </ThemeProvider>
+        <nav>
+          <NavigationItems />
+        </nav>
+      </SideDrawerDiv>
+    </Fragment>
   )
 }
 

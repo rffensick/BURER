@@ -21,6 +21,10 @@ const ToolbarHeader = styled.div`
 
 const ToolbarNav = styled.nav`
   height: 100%;
+
+  @media (max-width: 499px) {
+    display: none;
+  }
 `
 
 const Toolbar = props => {
