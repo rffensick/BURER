@@ -28,9 +28,9 @@ const Toolbar = props => {
     <ToolbarHeader>
       <div>Menu</div>
       <Logo />
-      <nav>
+      <ToolbarNav>
         <NavigationItems />
-      </nav>
+      </ToolbarNav>
     </ToolbarHeader>
   )
 }
