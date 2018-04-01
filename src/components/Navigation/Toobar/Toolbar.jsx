@@ -30,7 +30,7 @@ const ToolbarNav = styled.nav`
 const Toolbar = props => {
   return (
     <ToolbarHeader>
-      <div>Menu</div>
+      <div onClick={props.clicked}>Menu</div>
       <Logo />
       <ToolbarNav>
         <NavigationItems />

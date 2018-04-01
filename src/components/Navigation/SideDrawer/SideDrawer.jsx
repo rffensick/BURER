@@ -16,14 +16,15 @@ const SideDrawerDiv = styled.div`
   padding: 32px 16px;
   box-sizing: border-box;
   transition: transform 0.3s ease-out;
+  transform: ${props => (props.open ? 'translateX(0)' : 'translateX(-100vh)')};
 
-  &.Open {
+  /* &.Open {
     transform: translateX(0);
   }
 
   &.Close {
     transform: translateX(-100vh);
-  }
+  } */
 
   @media (min-width: 500px) {
     display: none;
@@ -37,8 +38,8 @@ const theme = {
 const SideDrawer = props => {
   return (
     <Fragment>
-      <Backdrop show />
-      <SideDrawerDiv>
+      <Backdrop show={props.show} clicked={props.close} />
+      <SideDrawerDiv open={props.show} close={!props.show}>
         <ThemeProvider theme={theme}>
           <Logo />
         </ThemeProvider>
