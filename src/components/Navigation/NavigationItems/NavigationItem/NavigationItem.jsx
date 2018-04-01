@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const NavigationItemLi = styled.li`
-  margin: 0;
+  margin: 10px 0;
   box-sizing: border-box;
   display: flex;
   height: 100%;
@@ -24,6 +24,9 @@ const NavigationItemLi = styled.li`
       border-bottom: 4px solid #40a4c8;
       color: white;
     }
+  }
+
+  @media (min-width: 500px) {
   }
 `
 

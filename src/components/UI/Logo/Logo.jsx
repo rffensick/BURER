@@ -2,10 +2,10 @@ import React from 'react'
 import logo from '../../../assets/images/burger-logo.png'
 import styled from 'styled-components'
 
-const LogoImg = styled.div`
+const LogoDiv = styled.div`
   background-color: #fff;
   padding: 8px;
-  height: 80%;
+  height: ${props => props.theme.height};
   box-sizing: border-box;
   border-radius: 5px;
 
@@ -14,11 +14,17 @@ const LogoImg = styled.div`
   }
 `
 
+LogoDiv.defaultProps = {
+  theme: {
+    height: '80%'
+  }
+}
+
 const Logo = props => {
   return (
-    <LogoImg>
+    <LogoDiv>
       <img src={logo} alt="Logo Brand" />
-    </LogoImg>
+    </LogoDiv>
   )
 }
 
