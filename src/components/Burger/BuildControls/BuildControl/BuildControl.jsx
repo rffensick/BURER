@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const BuildControlDiv = styled.div`
   display: flex;
@@ -60,6 +61,14 @@ const BuildControl = ({
       </Button>
     </BuildControlDiv>
   )
+}
+
+BuildControl.propTypes = {
+  valid: PropTypes.bool.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  onAdd: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired
 }
 
 export default BuildControl

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import styled, { keyframes } from 'styled-components'
 import BuildControl from './BuildControl/BuildControl'
+import PropTypes from 'prop-types'
 
 const BuildControlsDiv = styled.div`
   background-color: #cf8f2e;
@@ -74,7 +75,7 @@ const BuildControls = ({
   disabledInfo,
   purchasable,
   ordred,
-  modalClose,
+  modalClose = f => f,
   onAdd = f => f,
   onRemove = f => f
 }) => {
@@ -92,13 +93,24 @@ const BuildControls = ({
           />
         ))}
       </BuildControlsDiv>
-      <div style={{display: 'flex', justifyContent: 'center', margin: '10px 0'}} >
+      <div
+        style={{ display: 'flex', justifyContent: 'center', margin: '10px 0' }}
+      >
         <OrderButton onClick={ordred} disabled={!purchasable}>
           Order Now!
         </OrderButton>
       </div>
     </Fragment>
   )
+}
+
+BuildControls.propsTypes = {
+  price: PropTypes.string.isRequired,
+  disabledInfo: PropTypes.bool.isRequired,
+  purchasable: PropTypes.bool.isRequired,
+  modalClose: PropTypes.func.isRequired,
+  onAdd: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired
 }
 
 export default BuildControls
