@@ -2,22 +2,27 @@ import React, { Component, Fragment } from 'react'
 import Modal from '../../components/UI/Modal/Modal'
 
 const withErrorHandler = (WrappedComponent, axios) => {
-  return class extends Component {
+  return class withErrorHandler extends Component {
     state = {
       error: null
     }
 
-    componentDidMount() {
-      axios.interceptors.request.use(req => {
+    componentWillMount = () => {
+      this.reqInterceptors = axios.interceptors.request.use(req => {
         this.setState({ error: null })
         return req
       })
-      axios.interceptors.response.use(
+      this.resInterceptors = axios.interceptors.response.use(
         res => res,
         error => {
           this.setState({ error })
         }
       )
+    }
+
+    componentWillUnmount() {
+      axios.interceptors.request.eject(this.reqInterceptors)
+      axios.interceptors.response.eject(this.resInterceptors)
     }
 
     errorConfirm = () => this.setState({ error: null })
@@ -26,7 +31,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
       return (
         <Fragment>
           <Modal modalClose={this.errorConfirm} show={this.state.error}>
-            {this.state.error && `Сыра не было! Сорян`}
+            {this.state.error ? `Сыра не было! Сорян` : `Спасибо`}
           </Modal>
           <WrappedComponent {...this.props} />
         </Fragment>

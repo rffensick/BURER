@@ -17,17 +17,20 @@ const INGREDIENTS_PRICES = {
 
 class BurgerBuilder extends Component {
   state = {
-    ingredients: {
-      salad: 0,
-      bacon: 0,
-      cheese: 0,
-      meat: 0
-    },
+    ingredients: null,
 
     totalPrice: 4,
     purchasable: false,
     purchasing: false,
-    loading: false
+    loading: false,
+    error: null
+  }
+
+  componentDidMount = () => {
+    axios
+      .get('https://react-burger-897a2.firebaseio.com/ingredients.json')
+      .then(response => this.setState({ ingredients: response.data }))
+      .catch(error => this.setstate({ error }))
   }
 
   componentDidUpdate = (_, prevState) => {
@@ -80,11 +83,11 @@ class BurgerBuilder extends Component {
       ingredients: this.state.ingredients,
       price: this.state.totalPrice,
       customer: {
-        name: 'Eduard Ilyaskin',
-        email: 'ilyaskin1998@gmail.com',
+        name: 'Saga',
+        email: 'unknown@gmail.com',
         address: {
-          street: 'Gulder-1',
-          zipCode: '100024',
+          street: 'unknown',
+          zipCode: 'unknown',
           country: 'Kazakhstan'
         }
       },
@@ -98,12 +101,12 @@ class BurgerBuilder extends Component {
   }
 
   render() {
-    const { loading } = this.state
+    const { loading, ingredients } = this.state
     const disabledInfo = { ...this.state.ingredients }
     for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0
     }
-    return (
+    return ingredients ? (
       <Aux>
         <Modal modalClose={this.modalClose} show={this.state.purchasing}>
           {loading ? (
@@ -127,6 +130,8 @@ class BurgerBuilder extends Component {
           ordred={this.purchasingHandler}
         />
       </Aux>
+    ) : (
+      <Spinner />
     )
   }
 }
