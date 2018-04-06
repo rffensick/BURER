@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../../assets/images/burger-logo.png'
+import logo from 'assets/images/burger-logo.png'
 import styled from 'styled-components'
 
 const LogoDiv = styled.div`
