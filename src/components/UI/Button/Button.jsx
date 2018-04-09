@@ -1,16 +1,9 @@
 import styled from 'styled-components'
 
-export const ButtonStyle = styled.button`
+export const Button = styled.button`
   background-color: transparent;
-  border: 1px solid
-    ${props => {
-      if (props.success) return 'mediumseagreen'
-      if (props.danger) return 'palevioletred'
-    }};
-  color: ${props => {
-    if (props.success) return 'mediumseagreen'
-    if (props.danger) return 'palevioletred'
-  }};
+  border: 1px solid ${props => props.theme.color};
+  color: ${props => props.theme.color};
   outline: none;
   cursor: pointer;
   font-size: 1.2rem;
@@ -21,14 +14,16 @@ export const ButtonStyle = styled.button`
   transition: 0.2s ease;
 
   &:hover {
-    background-color: ${props => {
-      if (props.success) return 'mediumseagreen'
-      if (props.danger) return 'palevioletred'
-    }};
-		color: white;
+    background-color: ${props => props.theme.color};
+    color: white;
   }
 `
 
-ButtonStyle.defaultProps = {
-  color: 'gray'
+// mediumseagreen
+// palevioletred
+
+Button.defaultProps = {
+  theme: {
+    color: 'grey'
+  }
 }

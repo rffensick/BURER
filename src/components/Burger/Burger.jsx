@@ -5,7 +5,6 @@ import BurgetIng from './BurgerIng/'
 const Burger = styled.div`
   width: 100%;
   margin: auto;
-  min-height: 450px;
   overflow: hidden;
   text-align: center;
   font-weight: bold;
@@ -38,9 +37,7 @@ export default ({ ingredients }) => {
     <Burger>
       <BurgetIng type="bread-top" />
       {transformedIngredients}
-      {transformedIngredients.length === 0 && (
-        <p>Please select some ingredients!</p>
-      )}
+      {transformedIngredients.length === 0 && <p>Please select some ingredients!</p>}
       <BurgetIng type="bread-bottom" />
     </Burger>
   )

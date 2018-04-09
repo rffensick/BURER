@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Aux from '../../../hoc/Aux1'
-import { ButtonStyle } from '../../UI/Button/Button'
+import { ThemeProvider } from 'styled-components'
+import { Button } from '../../UI/Button/Button'
 
 class OrderSummary extends Component {
   componentDidUpdate(nextProps) {
@@ -25,12 +26,12 @@ class OrderSummary extends Component {
           <strong>Your total Price : {this.props.price.toFixed(2)}$</strong>
         </p>
         <p>Continue to Checkout?</p>
-        <ButtonStyle onClick={this.props.modalClose} danger>
-          Cancel
-        </ButtonStyle>
-        <ButtonStyle onClick={this.props.purchaseContinue} success>
-          Continue
-        </ButtonStyle>
+        <ThemeProvider theme={{ color: 'palevioletred' }}>
+          <Button onClick={this.props.modalClose}>Cancel</Button>
+        </ThemeProvider>
+        <ThemeProvider theme={{ color: 'mediumseagreen' }}>
+          <Button onClick={this.props.purchaseContinue}>Continue</Button>
+        </ThemeProvider>
       </Aux>
     )
   }
