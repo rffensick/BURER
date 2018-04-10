@@ -58,6 +58,21 @@ class ContactData extends Component {
       .catch(err => this.setState({ loading: false }))
   }
 
+  onChangeNameEmail = e => {
+    const { value, name } = e.target
+    this.setState({
+      ...this.state,
+      [name]: value
+    })
+  }
+
+  onChangeAddress = e => {
+    const { value, name } = e.target
+    this.setState({
+      address: { ...this.state.address, [name]: value }
+    })
+  }
+
   render() {
     const { loading } = this.state
     return (
@@ -67,18 +82,26 @@ class ContactData extends Component {
           <Spinner />
         ) : (
           <form onSubmit={this.orderHandler}>
-            <ContactDataInput type="text" name="name" placeholder="Your name" />
             <ContactDataInput
+              onChange={this.onChangeNameEmail}
+              type="text"
+              name="name"
+              placeholder="Your name"
+            />
+            <ContactDataInput
+              onChange={this.onChangeNameEmail}
               type="email"
               name="email"
               placeholder="example@example.com"
             />
             <ContactDataInput
+              onChange={this.onChangeAddress}
               type="text"
               name="street"
               placeholder="Your street"
             />
             <ContactDataInput
+              onChange={this.onChangeAddress}
               type="text"
               name="postCode"
               placeholder="Your post-code"
