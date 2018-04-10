@@ -24,10 +24,10 @@ const Burger = styled.div`
   }
 `
 
-export default ({ ingredients }) => {
-  const transformedIngredients = Object.keys(ingredients)
+const burger = props => {
+  const transformedIngredients = Object.keys(props.ingredients)
     .map(igKey => {
-      return [...Array(ingredients[igKey])].map((_, i) => (
+      return [...Array(props.ingredients[igKey])].map((_, i) => (
         <BurgetIng type={igKey} key={igKey + i} />
       ))
     })
@@ -42,3 +42,5 @@ export default ({ ingredients }) => {
     </Burger>
   )
 }
+
+export default burger

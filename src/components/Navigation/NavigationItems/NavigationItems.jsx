@@ -20,9 +20,9 @@ const NavigationItems = props => {
   return (
     <NavigationItemsUl>
       <NavigationItem active href="/">
-        Some there
+        Burger Builder
       </NavigationItem>
-      <NavigationItem href="/">Some there 22</NavigationItem>
+      <NavigationItem href="/checkout">Checkout</NavigationItem>
     </NavigationItemsUl>
   )
 }

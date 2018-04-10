@@ -1,32 +1,27 @@
 import React from 'react'
 import Burger from '../../Burger/Burger'
 import { Button } from '../../UI/Button/Button'
-import styled, { ThemeProvider, withTheme } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
 const CheckoutSummaryDiv = styled.div`
   text-align: center;
   width: 80%;
   margin: auto;
-
-  @media (min-width: 600px) {
-    width: 500px;
-  }
 `
 
 const CheckoutSummary = props => {
-  console.log(this.props)
   return (
     <CheckoutSummaryDiv>
-      <h1>We hope test well!</h1>
       <Burger ingredients={props.ingredients} />
+      <h1>THAT'S YOUR BURGER! AWESOME!</h1>
       <ThemeProvider theme={{ color: 'palevioletred' }}>
-        <Button>Cancel</Button>
+        <Button onClick={props.cancelBack}>Cancel</Button>
       </ThemeProvider>
       <ThemeProvider theme={{ color: 'mediumseagreen' }}>
-        <Button>Continue</Button>
+        <Button onClick={props.continuePurchase}>Continue</Button>
       </ThemeProvider>
     </CheckoutSummaryDiv>
   )
 }
 
-export default withTheme(CheckoutSummary)
+export default CheckoutSummary
