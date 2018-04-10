@@ -26,7 +26,7 @@ export default class Layout extends Component {
           close={this.toggleSideDrawer}
           show={this.state.showSideDrawer}
         />
-        <main>{children}</main>
+        <main style={{ paddingTop: '56px' }}>{children}</main>
       </Aux>
     )
   }

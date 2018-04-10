@@ -41,11 +41,11 @@ class ContactData extends Component {
       ingredients: this.props.ingredients,
       price: this.props.price,
       customer: {
-        name: 'Saga',
-        email: 'unknown@gmail.com',
+        name: this.state.name,
+        email: this.state.email,
         address: {
-          street: 'unknown',
-          zipCode: 'unknown'
+          street: this.state.address.street,
+          zipCode: this.state.address.postCode
         }
       },
       deliveryMethod: 'faster'

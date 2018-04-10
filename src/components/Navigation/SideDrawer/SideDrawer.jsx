@@ -18,14 +18,6 @@ const SideDrawerDiv = styled.div`
   transition: transform 0.3s ease-out;
   transform: ${props => (props.open ? 'translateX(0)' : 'translateX(-100vh)')};
 
-  /* &.Open {
-    transform: translateX(0);
-  }
-
-  &.Close {
-    transform: translateX(-100vh);
-  } */
-
   @media (min-width: 500px) {
     display: none;
   }

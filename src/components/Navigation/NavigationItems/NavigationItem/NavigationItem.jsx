@@ -46,11 +46,11 @@ const NavigationItemLi = styled.li`
   }
 `
 
-const NavigationItem = props => {
+const NavigationItem = ({ href, children, ...rest }) => {
   return (
     <NavigationItemLi>
-      <NavLink exact to={props.href} activeClassName="active">
-        {props.children}
+      <NavLink {...rest} to={href} activeClassName="active">
+        {children}
       </NavLink>
     </NavigationItemLi>
   )
