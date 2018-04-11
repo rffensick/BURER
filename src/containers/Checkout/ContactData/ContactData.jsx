@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { Button } from '../../../components/UI/Button/Button'
 import axios from 'axios-orders'
 import Spinner from '../../../components/UI/Spinner/Spinner'
+import Input from '../../../components/UI/Input/Input'
 
 const ContactDataSection = styled.section`
   margin: 20px auto;
@@ -16,10 +17,6 @@ const ContactDataSection = styled.section`
   @media (min-width: 600px) {
     width: 500px;
   }
-`
-
-const ContactDataInput = styled.input`
-  display: block;
 `
 
 class ContactData extends Component {
@@ -82,32 +79,36 @@ class ContactData extends Component {
           <Spinner />
         ) : (
           <form onSubmit={this.orderHandler}>
-            <ContactDataInput
+            <Input
               onChange={this.onChangeNameEmail}
               type="text"
               name="name"
               placeholder="Your name"
+              required
             />
-            <ContactDataInput
+            <Input
               onChange={this.onChangeNameEmail}
               type="email"
               name="email"
               placeholder="example@example.com"
+              required
             />
-            <ContactDataInput
+            <Input
               onChange={this.onChangeAddress}
               type="text"
               name="street"
               placeholder="Your street"
+              required
             />
-            <ContactDataInput
+            <Input
               onChange={this.onChangeAddress}
               type="text"
               name="postCode"
-              placeholder="Your post-code"
+              placeholder="Your postcode"
+              required
             />
             <ThemeProvider theme={{ color: 'mediumseagreen' }}>
-              <Button type="submit">Order NOW!</Button>
+              <Button type="submit">Order now!</Button>
             </ThemeProvider>
           </form>
         )}
