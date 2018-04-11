@@ -26,10 +26,8 @@ const ModalDiv = styled.div`
 
 class Modal extends Component {
   shouldComponentUpdate(nextProps, _) {
-    return (
-      nextProps.show !== this.props.show &&
-      nextProps.children !== this.props.children
-    )
+    if (this.props.show !== nextProps.show) return true
+    return false
   }
 
   render() {

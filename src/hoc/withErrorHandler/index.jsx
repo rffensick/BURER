@@ -8,7 +8,8 @@ const withErrorHandler = (WrappedComponent, axios) => {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-      return nextState.error !== this.state.error
+      if (this.state.error !== nextState.error) return true
+      return false
     }
 
     componentWillMount = () => {
