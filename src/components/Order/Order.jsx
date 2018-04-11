@@ -1,5 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { mapToArrayIng } from 'utils'
+
+const Span = styled.span`
+  display: inline-block;
+  border: 1px solid #ccc;
+  text-transform: capitalize;
+  margin: 0 8px;
+  padding: 5px;
+`
 
 const OrderDiv = styled.div`
   width: 85%;
@@ -11,11 +20,21 @@ const OrderDiv = styled.div`
 `
 
 const Order = props => {
+  const transformIng = mapToArrayIng(props.ingredients).map(ing => (
+    <Span key={ing.name}>
+      {ing.name} (<span
+        style={ing.amount === 0 ? { color: 'red' } : { color: 'green' }}
+      >
+        {ing.amount}
+      </span>)
+    </Span>
+  ))
+
   return (
     <OrderDiv>
-      <p>Ingredients: Salad (1)</p>
+      <p>Ingredients: {transformIng}</p>
       <p>
-        Price: <strong>USD 5.45</strong>
+        Price: <strong>USD {parseInt(props.price, 0).toFixed(2)}</strong>
       </p>
     </OrderDiv>
   )
